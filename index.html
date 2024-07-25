@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NatureImageGallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <ul>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="nature">Nature</li>
+            <li class="list" data-filter="cats">Cats</li>
+            <li class="list" data-filter="dogs">Dogs</li>
+            <li class="list" data-filter="wild">wildlife</li>
+        </ul>
+<div class="product">
+    <div class="itembox" data-item="cats"><img src="img/cats1.jpg"></div>
+    <div class="itembox" data-item="dogs"><img src="img/dogs1.jpg"></div>
+    <div class="itembox" data-item="nature"><img src="img/nature1.jpg"></div>
+    <div class="itembox" data-item="wild"><img src="img/wild1.jpg"></div>
+
+    <div class="itembox" data-item="nature"><img src="img/nature2.jpg"></div>
+    <div class="itembox" data-item="cats"><img src="img/cats2.jpg"></div>
+    <div class="itembox" data-item="dogs"><img src="img/dogs2.jpg"></div>
+    <div class="itembox" data-item="wild"><img src="img/wild2.jpg"></div>
+
+    <div class="itembox" data-item="nature"><img src="img/nature3.jpg"></div>
+    <div class="itembox" data-item="cats"><img src="img/cats3.jpg"></div>
+    <div class="itembox" data-item="dogs"><img src="img/dogs3.jpg"></div>
+    <div class="itembox" data-item="wild"><img src="img/wild3.jpg"></div>
+
+    <div class="itembox" data-item="nature"><img src="img/nature4.jpg"></div>
+    <div class="itembox" data-item="cats"><img src="img/cats4.jpg"></div>
+    <div class="itembox" data-item="dogs"><img src="img/dogs4.jpg"></div>
+    <div class="itembox" data-item="wild"><img src="img/wild4.jpg"></div>
+
+    <div class="itembox" data-item="nature"><img src="img/nature5.jpg"></div>
+    <div class="itembox" data-item="cats"><img src="img/cats5.jpg"></div>
+    <div class="itembox" data-item="dogs"><img src="img/dogs5.jpg"></div>
+    <div class="itembox" data-item="wild"><img src="img/wild5.jpg"></div>
+</div>
+    </section>
+    <script>
+        let list = document.querySelectorAll(".list");
+        let itembox = document.querySelectorAll(".itembox");
+
+        for(let i =0; i<list.length ;i++)
+           {
+            list[i].addEventListener("click",function(){
+             for(let j =0; j<list.length ;j++){
+                
+                itembox[j].classList.remove("active");
+             }
+             this.classList.add("active");
+
+             let datafilter = this.getAttribute("data-filter");
+             
+             for(let k =0; k<itembox.length ;k++){
+                itembox[k].classList.remove("active");
+                itembox[k].classList.add("hide");
+            
+                if(itembox[k].getAttribute("data-item") == datafilter || datafilter == "all"){
+                    itembox[k].classList.remove("hide");
+                    itembox[k].classList.add("active");
+                }
+                }
+                
+            })
+        }
+        
+    </script>
+</body>
+</html>
